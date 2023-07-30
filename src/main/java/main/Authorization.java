@@ -28,9 +28,9 @@ public class Authorization {
             User user = query.getSingleResult();
 
             System.out.println("Id: "+user.getId());
-            System.out.println("Имя: "+user.getFirstName());
-            System.out.println("Фамилия: "+user.getLastName());
-            System.out.println("Город: "+user.getCity());
+            System.out.println("Имя: "+user.getFirst_name());
+            System.out.println("Фамилия: "+user.getLast_name());
+            System.out.println("Город: "+user.getCity().getName());
             System.out.println("Индекс города: "+user.getCity().getIndex());
 
             manager.getTransaction().commit();

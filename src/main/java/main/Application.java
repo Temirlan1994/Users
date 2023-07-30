@@ -9,15 +9,18 @@ public class Application {
 
         System.out.println("Авторизация [1]");
         System.out.println("Регистрация [2]");
-        System.out.println("Выберите действие: ");
+        System.out.print("Выберите действие: ");
         String action = sc.nextLine();
 
-        if (action.equals("2")) {
-
-        }else if (action.equals("1")) {
-            
+        if (action.equals("1")) {
+            Authorization authorization = new Authorization();
+            authorization.launch();
+        }else if (action.equals("2")) {
+            Registration registration = new Registration();
+            registration.createUser();
+        }else{
+            System.out.println("Неправильные дынные, повторите попытку!");
         }
-
 
 
 

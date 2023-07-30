@@ -5,7 +5,7 @@ import jakarta.persistence.*;
 import java.util.List;
 
 @Entity
-@Table
+@Table(name = "cities")
 public class City {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -14,7 +14,7 @@ public class City {
     private String name;
     private String index;
 
-    @OneToMany(mappedBy = "users")
+    @OneToMany(mappedBy = "city")
     private List<User> users;
 
     public Long getId() {

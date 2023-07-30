@@ -39,13 +39,14 @@ public class Registration {
         try {
             manager.getTransaction().begin();
 
+            City city = manager.find(City.class, cityId);
             User user = new User();
-            user.setFirstName(firstName);
-            user.setLastName(lastName);
+
+            user.setCity(city);
+            user.setFirst_name(firstName);
+            user.setLast_name(lastName);
             user.setLogin(login);
             user.setPassword(password);
-            City city = manager.find(City.class, cityId);
-            user.setCity(city);
             manager.persist(user);
 
             manager.getTransaction().commit();
