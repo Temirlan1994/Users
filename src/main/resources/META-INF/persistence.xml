@@ -6,7 +6,7 @@
   <persistence-unit name="main">
 
     <properties>
-      <property name="hibernate.connection.url" value="jdbc:postgresql://localhost:5432/java_temirlan_catalog"/>
+      <property name="hibernate.connection.url" value="jdbc:postgresql://localhost:5432/user"/>
       <property name="hibernate.connection.username" value="postgres"/>
       <property name="hibernate.connection.password" value="0000"/>
     </properties>
