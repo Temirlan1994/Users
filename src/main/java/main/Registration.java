@@ -21,19 +21,32 @@ public class Registration {
         );
 
         List<City> cityList = query.getResultList();
+
+        System.out.println("--- Список городов ---");
         for (City city : cityList) {
             System.out.println(city.getName()+" ["+city.getId()+"]");
         }
-        System.out.println("Input your city id: ");
+
+        /*
+        System.out.print("Ввести другой город? (да/нет): ");
+        String answer = sc.nextLine();
+        if(answer.equals("да")){
+            createCity();
+            return;
+        }
+        */
+
+        System.out.print("Введите id Вашего города: ");
         String cityId = sc.nextLine();
 
-        System.out.println("Input firstName: ");
+
+        System.out.print("Введите имя: ");
         String firstName = sc.nextLine();
-        System.out.println("Input lastName: ");
+        System.out.print("Введите фамилию: ");
         String lastName = sc.nextLine();
-        System.out.println("Input login: ");
+        System.out.print("Введите логин: ");
         String login = sc.nextLine();
-        System.out.println("Input password: ");
+        System.out.print("Введите пароль: ");
         String password = sc.nextLine();
 
         try {
@@ -56,14 +69,15 @@ public class Registration {
         }
     }
 
+    /*
     public void createCity(){
         EntityManagerFactory factory = Persistence.createEntityManagerFactory("main");
         EntityManager manager = factory.createEntityManager();
 
         Scanner sc = new Scanner(System.in);
-        System.out.println("Input name of your city: ");
+        System.out.print("Введите ваш город: ");
         String nameCity = sc.nextLine();
-        System.out.println("Input index of your city");
+        System.out.print("Введите индекс города: ");
         String indexCity = sc.nextLine();
 
         try{
@@ -72,13 +86,14 @@ public class Registration {
             city.setName(nameCity);
             city.setIndex(indexCity);
             manager.persist(city);
-
+            System.out.println("город внесен в список");
             manager.getTransaction().commit();
         }catch (Exception e){
             manager.getTransaction().rollback();
             e.printStackTrace();
         }
     }
+    */
 
 
 }

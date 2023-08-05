@@ -4,7 +4,7 @@ create table cities
 (
     id serial8,
     name varchar,
-    index int8,
+    index varchar,
     primary key (id)
 );
 
