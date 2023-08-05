@@ -6,8 +6,6 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 import jakarta.persistence.TypedQuery;
-
-import java.lang.reflect.Type;
 import java.util.List;
 import java.util.Scanner;
 
@@ -39,9 +37,10 @@ public class Authorization {
 
             System.out.println("Изменить данные [1]");
             System.out.println("Просмотреть информацию о пользователе [2]");
+            System.out.println("Удалить свой аккаунт [3]");
             System.out.print("Выберите действие!");
-
             String action = sc.nextLine();
+
             if(action.equals("1")){
                 System.out.print("Введите новое имя: ");
                 String firstName = sc.nextLine();
@@ -62,13 +61,15 @@ public class Authorization {
                 user.setFirst_name(firstName);
                 user.setLast_name(lastName);
                 user.setCity(city);
-
             }else if(action.equals("2")){
                 System.out.println("Id: "+user.getId());
                 System.out.println("Имя: "+user.getFirst_name());
                 System.out.println("Фамилия: "+user.getLast_name());
                 System.out.println("Город: "+user.getCity().getName());
                 System.out.println("Индекс города: "+user.getCity().getIndex());
+            } else if (action.equals("3")) {
+                manager.remove(user);
+                System.out.println("Ваш аккаунт удален");
             }
 
             manager.getTransaction().commit();
